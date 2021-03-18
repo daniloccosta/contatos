@@ -1,0 +1,17 @@
+{% extends "page.html" %}
+
+{% block content %}
+    <h2>Contatos</h2>
+
+    <a href="contato/">
+        <button type="button">Novo Contato</button>
+    </a>
+    <ul style="font-size: 18px">
+    {% for contato in contatos %}
+        <li>
+            {{ contato.nome }}
+            {{ contato.whatsapp }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}
