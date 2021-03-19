@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import RedirectView
 from core import views
+from core.views import ContatoCreateView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('contatos/', views.contatos),
     path('', RedirectView.as_view(url='/contatos/')),
+    path('contatos/contato/', ContatoCreateView.as_view(), name='contato'),
 ]
