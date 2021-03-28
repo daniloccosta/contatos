@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
 {% block title %}Contatos{% endblock %}
+{% block page_title %}Contato{% endblock %}
 
 {% block content %}
-    {% block page_title %}Contato{% endblock %}
-
     <a href="contato/">
         <button type="button">Novo Contato</button>
     </a>
     <ul style="font-size: 18px">
-    {% for contato in contatos %}
+    {% for contato in contacts %}
         <li>
             {{ contato.nome }}
             <br>{{ contato.whatsapp }}

@@ -25,4 +25,5 @@ urlpatterns = [
     path('contatos/', views.contatos),
     path('', RedirectView.as_view(url='/contatos/')),
     path('contatos/contato/', ContatoCreateView.as_view(), name='contato'),
+    path('contatos/contato/submit', views.gravar_contato),
 ]
