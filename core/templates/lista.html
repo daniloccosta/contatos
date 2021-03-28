@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}Contatos{% endblock %}
-{% block page_title %}Contato{% endblock %}
+{% block page_title %}Contatos{% endblock %}
 
 {% block content %}
     <a href="contato/">
@@ -18,6 +18,7 @@
         <th>Twitter</th>
         <th>Linkedin</th>
         <th>TikTok</th>
+        <th>Excluir</th>
       </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@
           <td>{{ contato.twitter }}</td>
           <td>{{ contato.linkedin }}</td>
           <td>{{ contato.tiktok }}</td>
+          <td><a href="contato/delete/?id={{ contato.id }}"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
       {% empty %}
         <tr class="table-active">

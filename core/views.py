@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from core.models import Contato
-
+from django.http.response import Http404
 # Create your views here.
 
 # lista todos os contatos
@@ -42,5 +42,12 @@ def gravar_contato(request):
                                 twitter=twitter, linkedin=linkedin, tiktok=tiktok)
     return redirect('/')
 
-def editar_contato(request):
-    pass
+def delete_contato(request):
+    try:
+        id = request.GET.get('id')
+    except:
+        raise Http404()
+
+    contato = Contato.objects.get(id=id)
+    contato.delete()
+    return redirect('/')
