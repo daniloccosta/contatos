@@ -7,12 +7,35 @@
     <a href="contato/">
         <button type="button">Novo Contato</button>
     </a>
-    <ul style="font-size: 18px">
-    {% for contato in contacts %}
-        <li>
-            {{ contato.nome }}
-            <br>{{ contato.whatsapp }}
-        </li>
-    {% endfor %}
-    </ul>
+
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Facebook</th>
+        <th>Instagram</th>
+        <th>Whatsapp</th>
+        <th>Twitter</th>
+        <th>Linkedin</th>
+        <th>TikTok</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for contato in contacts %}
+        <tr>
+          <td><a href="/contatos/contato/?id={{contato.id}}">{{ contato.nome }}</a></td>
+          <td>{{ contato.facebook }}</td>
+          <td>{{ contato.instagram }}</td>
+          <td>{{ contato.whatsapp }}</td>
+          <td>{{ contato.twitter }}</td>
+          <td>{{ contato.linkedin }}</td>
+          <td>{{ contato.tiktok }}</td>
+        </tr>
+      {% empty %}
+        <tr class="table-active">
+          <td colspan="3">No data</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>
 {% endblock %}
